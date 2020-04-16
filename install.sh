@@ -13,7 +13,13 @@ else
     echo "${green}Virtual environment created${reset}"
 fi
 
+# Upgrade packaging tools
+echo "${yellow}Upgrade packaging tools${reset}"
+venv/bin/pip install --upgrade pip setuptools
+
 # Install app
-#venv/bin/pip install -e practice-api-python-pyramid
-#echo "${yellow}Installing practice-api-python-pyramid${reset}"
-#echo "  ${green}practice-api-python-pyramid complete${reset}"
+cd practice_api_python_pyramid
+echo "${yellow}Installing practice_api_python_pyramid${reset}"
+../venv/bin/pip install -e ".[testing]"
+
+echo "  ${green}Installation completed successfully.${reset}"

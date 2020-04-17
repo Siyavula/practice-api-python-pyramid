@@ -18,8 +18,14 @@ echo "${yellow}Upgrade packaging tools${reset}"
 venv/bin/pip install --upgrade pip setuptools
 
 # Install app
-cd practice_api_python_pyramid
 echo "${yellow}Installing practice_api_python_pyramid${reset}"
+cd practice_api_python_pyramid
 ../venv/bin/pip install -e ".[testing]"
+echo "${green}Completed installing practice_api_python_pyramid successfully${reset}"
 
-echo "  ${green}Installation completed successfully.${reset}"
+# Install requirements
+echo "${yellow}Installing requirements${reset}"
+cd ../
+venv/bin/pip install -r requirements.txt
+
+echo "  ${green}Installation completed successfully${reset}"

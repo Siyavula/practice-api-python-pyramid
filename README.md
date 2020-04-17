@@ -21,3 +21,7 @@ Please note that this is a only a demo application, the code was written to be a
     ./install.sh
 #### Run the app
     ./start.sh
+#### To demo the responsive version, in your browser go to:
+    http://localhost:6543/emas
+#### To demo the mobile (phones without JavaScript support) version, in your browser go to:
+    http://localhost:6543/mobile

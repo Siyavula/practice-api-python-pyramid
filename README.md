@@ -11,6 +11,8 @@ Learn more: https://www.siyavula.com/
 # Siyavula Practice API
 The Siyavula Practice API provides an easy way to integrate Siyavula Practice into any application via a RESTful API.
 
+[Documentation](https://docs.google.com/document/d/1Xo3uW-p0YdPo7m9LN7_W_QgHTo9PFtwxU2MTUNVaBZo/edit?usp=sharing)
+
 ## Siyavula Practice API Demo
 This repo serves as a demo application written in Python Pyramid to integrate with Siyavula's Practice API.  To authenticate with the API you will need API credentials.  If you do not yet have credentials, please contact sales@siyavula.com.
 

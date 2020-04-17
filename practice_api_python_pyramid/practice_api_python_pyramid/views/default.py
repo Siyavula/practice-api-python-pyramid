@@ -27,7 +27,8 @@ def get_question_emas(request):
 
     # Request token
     # res = requests.post('https://www.siyavula.com//api/practice/v1/get-token', json=data)
-    res = requests.post('https://www.emas/api/practice/v1/get-token', json=data, verify=False)
+    res = requests.post(request.registry.settings[
+                        'api_base_url'] + '/api/practice/v1/get-token', json=data, verify=False)
     token = res.json()['token']
 
     return {
@@ -57,8 +58,8 @@ def get_question_mobile(request):
     }
 
     # Request token
-    # res = requests.post('https://www.siyavula.com/api/practice/v1/get-token', json=data)
-    res = requests.post('https://www.emas/api/practice/v1/get-token', json=data, verify=False)
+    res = requests.post(request.registry.settings['api_base_url'] + '/api/practice/v1/get-token',
+                        json=data, verify=False)
     token = res.json()['token']
 
     # Set HTTP authentication(JWT) header
@@ -74,8 +75,7 @@ def get_question_mobile(request):
             'user_responses': user_responses
         }
         # Submit answer
-        # res = requests.post('https://www.siyavula.com/api/practice/v1/submit-answer', json=data, headers=headers, verify=False)
-        res = requests.post('https://www.emas/api/practice/v1/submit-answer',
+        res = requests.post(request.registry.settings['api_base_url'] + '/api/practice/v1/submit-answer',
                             json=data, headers=headers, verify=False)
         question_data = res.json()
     else:
@@ -85,8 +85,7 @@ def get_question_mobile(request):
             'random_seed': random_seed
         }
         # Get question data
-        # es = requests.post('https://www.siyavula.com/api/practice/v1/get-question', json=data, headers=headers, verify=False)
-        res = requests.post('https://www.emas/api/practice/v1/get-question',
+        res = requests.post(request.registry.settings['api_base_url'] + '/api/practice/v1/get-question',
                             json=data, headers=headers, verify=False)
         question_data = res.json()
 

@@ -29,6 +29,7 @@ Please note that this is only a demo application, the code was written to be as 
     cd practice-api-python-pyramid
 #### Install the virtual environment and app
     ./install.sh
+#### Open `practice_api_python_pyramid/practice_api_python_pyramid/config/credentials.py` in you text editor and add your API name and password
 #### Run the app
     ./start.sh
 #### To demo the responsive version, in your browser go to:

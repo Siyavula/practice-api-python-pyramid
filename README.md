@@ -10,7 +10,14 @@ Please note that this is a only a demo application, the code was written to be a
 * Python 3.7
 * Pip
 * Venv
+* Linux
 
 ## Installation
 #### Clone the repo:
     git clone git@github.com:Siyavula/practice-api-python-pyramid.git
+#### Go to the `practice-api-python-pyramid` directory
+    cd practice-api-python-pyramid
+#### Install the virtual environment and app
+    ./install.sh
+#### Run the app
+    ./start.sh

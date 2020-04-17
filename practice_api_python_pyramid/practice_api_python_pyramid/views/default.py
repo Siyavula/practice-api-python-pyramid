@@ -10,9 +10,9 @@ from practice_api_python_pyramid.config.credentials import api_client_name, api_
 def get_question_emas(request):
     template_id = 2122
     region = 'ZA'  # The country shortcode, can be either 'ZA', 'NG' or 'INTL'.
-    curriculum = 'CAPS'  # The curriculum code, can be either 'CAPS', 'NCS', 'IEB', 'NG' or 'INTL'.
-    # Use emas for modern devices with JS support that supports responsive design
-    # or mobi for older phones without JS support.
+    curriculum = 'CAPS'  # The curriculum code, can be either 'CAPS', 'NG' or 'INTL'.
+    # Use emas to get a responsive theme for modern devices
+    # or mobile for older phones without JS support.
     theme = 'emas'  # The theme to use, can be either 'emas' or 'mobile'.
     random_seed = 487029  # Random seed is optional, one will be generated if not provided.
     # Authentication payload
@@ -42,7 +42,7 @@ def get_question_emas(request):
 def get_question_mobile(request):
     template_id = 1805
     region = 'ZA'  # The country shortcode, can be either 'ZA', 'NG' or 'INTL'.
-    curriculum = 'CAPS'  # The curriculum code, can be either 'CAPS', 'NCS', 'IEB', 'NG' or 'INTL'.
+    curriculum = 'CAPS'  # The curriculum code, can be either 'CAPS', 'NG' or 'INTL'.
     # Use emas for modern devices with JS support that supports responsive design
     # or mobi for older phones without JS support.
     theme = 'emas'  # The theme to use, can be either 'emas' or 'mobile'.

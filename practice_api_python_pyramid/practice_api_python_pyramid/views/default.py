@@ -1,8 +1,7 @@
+import os
 import requests
 
 from pyramid.view import view_config
-
-from practice_api_python_pyramid.config.credentials import api_client_name, api_client_password
 
 
 @view_config(route_name='get_question', renderer='/templates/practice_emas.jinja2')
@@ -17,8 +16,8 @@ def get_question_emas(request):
     random_seed = 487029  # Random seed is optional, one will be generated if not provided.
     # Authentication payload
     data = {
-        'name': api_client_name,
-        'password': api_client_password,
+        'name': os.environ['api_client_name'],
+        'password': os.environ['api_client_password'],
         'client_ip': request.client_addr,
         'region': region,
         'curriculum': curriculum,
@@ -49,8 +48,8 @@ def get_question_mobile(request):
     random_seed = 259974  # Random seed is optional, one will be generated if not provided.
     # Authentication payload
     data = {
-        'name': api_client_name,
-        'password': api_client_password,
+        'name': os.environ['api_client_name'],
+        'password': os.environ['api_client_password'],
         'client_ip': request.client_addr,
         'region': region,
         'curriculum': curriculum,

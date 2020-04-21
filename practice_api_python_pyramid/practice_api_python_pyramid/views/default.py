@@ -5,8 +5,8 @@ from pyramid.view import view_config
 
 
 @view_config(route_name='get_question', renderer='/templates/practice_emas.jinja2')
-@view_config(route_name='get_question_emas', renderer='/templates/practice_emas.jinja2')
-def get_question_emas(request):
+@view_config(route_name='get_question_responsive', renderer='/templates/practice_emas.jinja2')
+def get_question_responsive(request):
     template_id = 2122
     region = 'ZA'  # The country shortcode, can be either 'ZA', 'NG' or 'INTL'.
     curriculum = 'CAPS'  # The curriculum code, can be either 'CAPS', 'NG' or 'INTL'.
@@ -37,8 +37,8 @@ def get_question_emas(request):
     }
 
 
-@view_config(route_name='get_question_mobile', renderer='/templates/practice_mobile.jinja2')
-def get_question_mobile(request):
+@view_config(route_name='get_question_basic', renderer='/templates/practice_mobile.jinja2')
+def get_question_basic(request):
     template_id = 1805
     region = 'ZA'  # The country shortcode, can be either 'ZA', 'NG' or 'INTL'.
     curriculum = 'CAPS'  # The curriculum code, can be either 'CAPS', 'NG' or 'INTL'.

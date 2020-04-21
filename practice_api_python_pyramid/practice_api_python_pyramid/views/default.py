@@ -11,9 +11,9 @@ def get_question_emas(request):
     template_id = 2122
     region = 'ZA'  # The country shortcode, can be either 'ZA', 'NG' or 'INTL'.
     curriculum = 'CAPS'  # The curriculum code, can be either 'CAPS', 'NG' or 'INTL'.
-    # Use emas to get a responsive theme for modern devices
-    # or mobile for older phones without JS support.
-    theme = 'emas'  # The theme to use, can be either 'emas' or 'mobile'.
+    # Use 'responsive' to get a responsive theme for modern devices
+    # or 'basic' for older devices without JS support.
+    theme = 'responsive'  # The theme to use, can be either 'responsive' or 'basic'.
     random_seed = 487029  # Random seed is optional, one will be generated if not provided.
     # Authentication payload
     data = {
@@ -43,9 +43,9 @@ def get_question_mobile(request):
     template_id = 1805
     region = 'ZA'  # The country shortcode, can be either 'ZA', 'NG' or 'INTL'.
     curriculum = 'CAPS'  # The curriculum code, can be either 'CAPS', 'NG' or 'INTL'.
-    # Use emas for modern devices with JS support that supports responsive design
-    # or mobi for older phones without JS support.
-    theme = 'emas'  # The theme to use, can be either 'emas' or 'mobile'.
+    # Use 'responsive' to get a responsive theme for modern devices
+    # or 'basic' for older devices without JS support.
+    theme = 'basic'  # The theme to use, can be either 'responsive' or 'basic'..
     random_seed = 259974  # Random seed is optional, one will be generated if not provided.
     # Authentication payload
     data = {
@@ -54,7 +54,7 @@ def get_question_mobile(request):
         'client_ip': request.client_addr,
         'region': region,
         'curriculum': curriculum,
-        'theme': 'mobile'
+        'theme': theme
     }
 
     # Request token

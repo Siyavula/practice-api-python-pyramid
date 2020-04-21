@@ -5,5 +5,5 @@ yellow=`tput setaf 3`
 reset=`tput sgr0`
 
 echo "${yellow}Starting practice_api_python_pyramid${reset}"
-echo "${yellow}Go to http://localhost:6543/emas or http://localhost:6543/mobile${reset}"
+echo "${yellow}Go to http://localhost:6543/responsive or http://localhost:6543/basic${reset}"
 venv/bin/pserve practice_api_python_pyramid/production.ini

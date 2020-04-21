@@ -13,7 +13,7 @@ The Siyavula Practice API provides an easy way to integrate Siyavula Practice in
 
 [Documentation](https://docs.google.com/document/d/1Xo3uW-p0YdPo7m9LN7_W_QgHTo9PFtwxU2MTUNVaBZo/edit?usp=sharing)
 
-## Siyavula Practice API Demo
+## Siyavula Practice API Python Pyramid Demo
 This repo serves as a demo application written in [Python](https://www.python.org/) [Pyramid](https://trypyramid.com/) to integrate with Siyavula's Practice API.  To authenticate with the API you will need API credentials.  If you do not yet have credentials, please contact sales@siyavula.com.
 
 **Please note**: this is only a demo application, the code was written to be as easy to understand as possible and as such might lack features you would expect in production level code.

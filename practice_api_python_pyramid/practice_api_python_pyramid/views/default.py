@@ -25,9 +25,9 @@ def get_question_responsive(request):
     }
 
     # Request token
-    # res = requests.post('https://www.siyavula.com//api/practice/v1/get-token', json=data)
+    #res = requests.post('https://www.siyavula.com/api/practice/v1/get-token', json=data)
     res = requests.post(request.registry.settings[
-                        'api_base_url'] + '/api/practice/v1/get-token', json=data, verify=False)
+                        'api_base_url'] + '/api/practice/v1/get-token', json=data)
     token = res.json()['token']
 
     return {
@@ -57,8 +57,8 @@ def get_question_basic(request):
     }
 
     # Request token
-    res = requests.post(request.registry.settings['api_base_url'] + '/api/practice/v1/get-token',
-                        json=data, verify=False)
+    res = requests.post(request.registry.settings[
+                        'api_base_url'] + '/api/practice/v1/get-token', json=data)
     token = res.json()['token']
 
     # Set HTTP authentication(JWT) header
@@ -74,8 +74,8 @@ def get_question_basic(request):
             'user_responses': user_responses
         }
         # Submit answer
-        res = requests.post(request.registry.settings['api_base_url'] + '/api/practice/v1/submit-answer',
-                            json=data, headers=headers, verify=False)
+        res = requests.post(request.registry.settings[
+                            'api_base_url'] + '/api/practice/v1/submit-answer', json=data, headers=headers)
         question_data = res.json()
     else:
         # Get question payload
@@ -84,8 +84,8 @@ def get_question_basic(request):
             'random_seed': random_seed
         }
         # Get question data
-        res = requests.post(request.registry.settings['api_base_url'] + '/api/practice/v1/get-question',
-                            json=data, headers=headers, verify=False)
+        res = requests.post(request.registry.settings[
+                            'api_base_url'] + '/api/practice/v1/get-question', json=data, headers=headers)
         question_data = res.json()
 
     return {

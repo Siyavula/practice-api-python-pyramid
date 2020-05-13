@@ -25,7 +25,6 @@ def get_question_responsive(request):
     }
 
     # Request token
-    #res = requests.post('https://www.siyavula.com/api/practice/v1/get-token', json=data)
     res = requests.post(request.registry.settings[
                         'api_base_url'] + '/api/practice/v1/get-token', json=data)
     token = res.json()['token']

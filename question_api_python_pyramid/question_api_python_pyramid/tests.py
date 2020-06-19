@@ -4,6 +4,7 @@ from pyramid import testing
 
 
 class ViewTests(unittest.TestCase):
+
     def setUp(self):
         self.config = testing.setUp()
 
@@ -14,12 +15,13 @@ class ViewTests(unittest.TestCase):
         from .views.default import my_view
         request = testing.DummyRequest()
         info = my_view(request)
-        self.assertEqual(info['project'], 'practice-api-python-pyramid')
+        self.assertEqual(info['project'], 'question-api-python-pyramid')
 
 
 class FunctionalTests(unittest.TestCase):
+
     def setUp(self):
-        from practice_api_python_pyramid import main
+        from question_api_python_pyramid import main
         app = main({})
         from webtest import TestApp
         self.testapp = TestApp(app)

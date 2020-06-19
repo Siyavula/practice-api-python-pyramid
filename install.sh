@@ -9,7 +9,7 @@ if [ -d "venv" ]; then
     echo "${green}Virtual environment exists${reset}"
 else
     echo "${yellow}Creating Virtual environment${reset}"
-    virtualenv --python=python3.7 venv
+    virtualenv --python=python3.8 venv
     echo "${green}Virtual environment created${reset}"
 fi
 
@@ -18,10 +18,10 @@ echo "${yellow}Upgrade packaging tools${reset}"
 venv/bin/pip install --upgrade pip setuptools
 
 # Install app
-echo "${yellow}Installing practice_api_python_pyramid${reset}"
-cd practice_api_python_pyramid
+echo "${yellow}Installing question_api_python_pyramid${reset}"
+cd question_api_python_pyramid
 ../venv/bin/pip install -e ".[testing]"
-echo "${green}Completed installing practice_api_python_pyramid successfully${reset}"
+echo "${green}Completed installing question_api_python_pyramid successfully${reset}"
 
 # Install requirements
 echo "${yellow}Installing requirements${reset}"

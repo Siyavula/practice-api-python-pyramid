@@ -4,9 +4,10 @@ import requests
 from pyramid.view import view_config
 
 
-@view_config(route_name='get_question', renderer='/templates/practice_responsive.jinja2')
-@view_config(route_name='get_question_responsive', renderer='/templates/practice_responsive.jinja2')
+@view_config(route_name='get_question', renderer='/templates/question_responsive.jinja2')
+@view_config(route_name='get_question_responsive', renderer='/templates/question_responsive.jinja2')
 def get_question_responsive(request):
+    api_base_url = request.registry.settings['api_base_url']
     template_id = 2122
     region = 'ZA'  # The country shortcode, can be either 'ZA', 'NG' or 'INTL'.
     curriculum = 'CAPS'  # The curriculum code, can be either 'CAPS', 'NG' or 'INTL'.
@@ -25,19 +26,21 @@ def get_question_responsive(request):
     }
 
     # Request token
-    res = requests.post(request.registry.settings[
-                        'api_base_url'] + '/api/practice/v1/get-token', json=data)
+    res = requests.post('{}/api/question/v1/get-token'.format(api_base_url),
+                        verify=False, json=data)
     token = res.json()['token']
 
     return {
         'token': token,
         'template_id': template_id,
-        'random_seed': random_seed
+        'random_seed': random_seed,
+        'api_base_url': api_base_url
     }
 
 
-@view_config(route_name='get_question_basic', renderer='/templates/practice_basic.jinja2')
+@view_config(route_name='get_question_basic', renderer='/templates/question_basic.jinja2')
 def get_question_basic(request):
+    api_base_url = request.registry.settings['api_base_url']
     template_id = 1805
     region = 'ZA'  # The country shortcode, can be either 'ZA', 'NG' or 'INTL'.
     curriculum = 'CAPS'  # The curriculum code, can be either 'CAPS', 'NG' or 'INTL'.
@@ -56,8 +59,8 @@ def get_question_basic(request):
     }
 
     # Request token
-    res = requests.post(request.registry.settings[
-                        'api_base_url'] + '/api/practice/v1/get-token', json=data)
+    res = requests.post('{}/api/question/v1/get-token'.format(api_base_url),
+                        verify=False, json=data)
     token = res.json()['token']
 
     # Set HTTP authentication(JWT) header
@@ -73,8 +76,8 @@ def get_question_basic(request):
             'user_responses': user_responses
         }
         # Submit answer
-        res = requests.post(request.registry.settings[
-                            'api_base_url'] + '/api/practice/v1/submit-answer', json=data, headers=headers)
+        res = requests.post('{}/api/question/v1/submit-answer'.format(api_base_url),
+                            verify=False, json=data, headers=headers)
         question_data = res.json()
     else:
         # Get question payload
@@ -83,13 +86,14 @@ def get_question_basic(request):
             'random_seed': random_seed
         }
         # Get question data
-        res = requests.post(request.registry.settings[
-                            'api_base_url'] + '/api/practice/v1/get-question', json=data, headers=headers)
+        res = requests.post('{}/api/question/v1/get-question'.format(api_base_url),
+                            verify=False, json=data, headers=headers)
         question_data = res.json()
 
     return {
         'token': token,
         'template_id': template_id,
         'random_seed': random_seed,
-        'question_html': question_data['question_html']
+        'question_html': question_data['question_html'],
+        'api_base_url': api_base_url
     }

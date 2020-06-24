@@ -23,9 +23,9 @@ tests_require = [
 ]
 
 setup(
-    name='practice_api_python_pyramid',
+    name='question_api_python_pyramid',
     version='0.0',
-    description='practice-api-python-pyramid',
+    description='question-api-python-pyramid',
     long_description=README + '\n\n' + CHANGES,
     classifiers=[
         'Programming Language :: Python',
@@ -46,7 +46,7 @@ setup(
     install_requires=requires,
     entry_points={
         'paste.app_factory': [
-            'main = practice_api_python_pyramid:main',
+            'main = question_api_python_pyramid:main',
         ],
     },
 )
